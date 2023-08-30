@@ -1,0 +1,115 @@
+<!-- <form method="POST" action="http://127.0.0.1:8000/accounts/edit/">
+    {% csrf_token %}
+    <input type="text", value="nickname", name="nickname">
+    <input type="file", value="image", name="image">
+    <input type="text", value="introduction", name="introduction">
+    <input type="submit", value="저장">
+
+</form> -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>WWW</title>
+   <link rel="stylesheet" href="{% static 'css/Profile.css' %}">
+</head>
+
+<body>
+   <header>
+      <img class="cloud10" src="{% static 'img/image 10.svg' %}" />
+      <img class="cloud11" src="{% static 'img/image 11.svg' %}" />
+      <img class="cloud12" src="{% static 'img/image 12.svg' %}" />
+      <img class="cloud13" src="{% static 'img/image 13.svg' %}" />
+      <img class="cloud14" src="{% static 'img/image 14.svg' %}" />
+      <div class="logo">
+         <p>www</p>
+      </div>
+      <div class="textContainer">
+         <p><span>w</span>hen</p>
+         <p><span>w</span>eather</p>
+         <p><span>w</span>ear</p>
+      </div>
+      <div class="btnContainer">
+         <button class="loginBtn"><a href="{% url 'login' %}">로그인</a></button>
+         <button class="signupBtn"><a href="{% url 'signup' %}">회원가입</a></button>
+      </div>
+   </header>
+   <main>
+      <p>회원가입이 완료 되었습니다.<br />프로필을 꾸며 보세요.</p>
+      <form method="POST" action="http://127.0.0.1:8000/accounts/profile/" enctype="multipart/form-data">
+         {% csrf_token %}
+         <input type="text" name="nickname" placeholder="Nickname" />
+         <input type="file" name="image" id="photo" />
+         <label for="photo">
+            <div class="photoUpload">upload_photo</div>
+         </label>
+         <textarea name = "introduction" placeholder="introduce your self:-)"></textarea>
+         <input class="submitBtn" type="submit" value="프로필 업로드" />
+      </form>
+   </main>
+   <script>
+      const cloud10 = document.querySelector('.cloud10')
+      const cloud11 = document.querySelector('.cloud11')
+      const cloud12 = document.querySelector('.cloud12')
+      const cloud13 = document.querySelector('.cloud13')
+      const cloud14 = document.querySelector('.cloud14')
+
+      cloud10.style.left = "308px"
+      cloud11.style.left = "0px"
+      cloud12.style.left = "290px"
+      cloud13.style.left = "89px"
+      cloud14.style.left = "168px"
+
+      let animate;
+
+      const cloudActive = () => {
+         moving1();
+         moving2();
+         moving3();
+      }
+
+      const moving1 = () => {
+         cloud10.style.left = parseInt(cloud10.style.left) + 1 + 'px';
+         cloud11.style.left = parseInt(cloud11.style.left) + 1 + 'px';
+         if (cloud10.style.left === '390px') {
+            cloud10.style.left = "-100px"
+         }
+         if (cloud11.style.left === '390px') {
+            cloud11.style.left = "-100px"
+         }
+
+         animate = setTimeout(moving1, 20)
+      }
+
+      const moving2 = () => {
+         cloud12.style.left = parseInt(cloud12.style.left) + 1 + 'px';
+         cloud13.style.left = parseInt(cloud13.style.left) + 1 + 'px';
+
+         if (cloud12.style.left === '390px') {
+            cloud12.style.left = "-100px"
+         }
+         if (cloud13.style.left === '390px') {
+            cloud13.style.left = "-100px"
+         }
+         animate = setTimeout(moving2, 30)
+      }
+
+      const moving3 = () => {
+         cloud14.style.left = parseInt(cloud14.style.left) + 1 + 'px';
+
+         if (cloud14.style.left === '390px') {
+            cloud14.style.left = "-100px"
+         }
+
+         animate = setTimeout(moving3, 40)
+      }
+
+      window.onload = cloudActive;
+   </script>
+</body>
+
+</html>

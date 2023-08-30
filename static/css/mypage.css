@@ -1,0 +1,239 @@
+@import 'reset.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+	width: 390px;
+	box-sizing: border-box;
+}
+
+html {
+	width: 390px;
+	margin: 0 auto;
+	background-color: #f5f5f5;
+}
+
+body {
+	background-color: #fff;
+	font-family: 'Inter';
+	font-style: normal;
+}
+
+header {
+	background-color: #cfedf3;
+	height: 206px;
+	position: relative;
+	overflow: hidden;
+}
+
+header img {
+	position: absolute;
+}
+
+header .cloud10 {
+	width: 82px;
+	height: 49px;
+	left: 308px;
+	top: 14px;
+}
+
+header .cloud11 {
+	width: 64px;
+	height: 38px;
+	left: 0px;
+	top: 44px;
+}
+
+header .cloud12 {
+	width: 64px;
+	height: 38px;
+	left: 290px;
+	top: 44px;
+}
+
+header .cloud13 {
+	width: 52px;
+	height: 31px;
+	left: 89px;
+	top: -2px;
+}
+
+header .headContainer {
+	display: flex;
+	padding: 0 18px;
+	padding-top: 22px;
+}
+
+.headContainer span {
+	width: auto;
+}
+
+.headContainer a {
+	text-align: right;
+	width: 100%;
+}
+
+header .profile {
+	margin-top: 71px;
+	position: relative;
+}
+
+header .profileImg {
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	border-radius: 100%;
+	top: -35px;
+	left: 40px;
+	object-fit: cover;
+}
+
+header .nickname {
+	position: absolute;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 18px;
+	width: 45px;
+	height: 18px;
+	left: 130px;
+	top: -22px;
+}
+
+header .desc {
+	height: 63px;
+	padding-left: 130px;
+}
+
+header .desc p {
+	position: absolute;
+	width: 230px;
+	height: 28px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 14px;
+	margin-top: 9px;
+}
+
+header .btnContainer {
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	gap: 63px;
+}
+
+.btnContainer button {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 18px;
+	background-color: #fff;
+	border-radius: 30px;
+	width: 130px;
+	height: 51px;
+	position: relative;
+	padding-bottom: 20px;
+}
+
+.btnContainer button:nth-child(2) {
+	background: rgba(255, 255, 255, 0.4);
+}
+
+main {
+	margin: 0;
+	padding: 18px;
+	padding-top: 7px;
+	padding-bottom: 0;
+	box-sizing: border-box;
+	width: 390px;
+}
+
+main .monthContainer {
+	margin: 0;
+	width: 355px;
+	margin-top: 35px;
+}
+
+main .month {
+	height: 18px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 18px;
+	margin-bottom: 6px;
+	width: 100%;
+}
+
+main .monthWeather {
+	width: 355px;
+	height: 127px;
+	background: #e3f7fb;
+	border-radius: 10px;
+	padding: 12px 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	justify-content: space-around;
+	margin: 0;
+	position: relative;
+}
+
+.monthWeather img {
+	position: absolute;
+}
+
+.monthWeather img:first-child {
+	width: 52px;
+	height: 31px;
+	left: 151px;
+	top: 11px;
+}
+
+.monthWeather img:nth-child(2) {
+	width: 64px;
+	height: 38px;
+	top: 49px;
+	left: 278px;
+}
+
+.monthWeather .monthDesc {
+	display: flex;
+	flex-direction: column;
+	font-size: 12px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	gap: 8px;
+	width: 100%;
+}
+
+.monthDesc p {
+	width: 100%;
+}
+
+.monthWeather .monthTitle {
+	font-size: 13px;
+	width: 100%;
+}
+
+.monthWeather .tag {
+	color: #ee952d;
+}
+
+main .imgContainer {
+	margin-top: 12px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 5px;
+	width: 355px;
+}
+
+.imgContainer img {
+	width: 115px;
+	height: 109px;
+	margin: 0;
+	object-fit: cover;
+}

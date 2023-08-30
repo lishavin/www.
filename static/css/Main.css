@@ -1,0 +1,384 @@
+@import 'reset.css';
+
+* {
+	width: 390px;
+	box-sizing: border-box;
+}
+
+html {
+	width: 390px;
+	margin: 0 auto;
+	background-color: #f5f5f5;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #fff;
+}
+
+header {
+	background-color: #cfedf3;
+	position: relative;
+	overflow: hidden;
+}
+
+header .cloud8 {
+	position: absolute;
+	width: 162px;
+	height: 98px;
+	left: -96px;
+	top: 126px;
+}
+
+header .cloud11 {
+	position: absolute;
+	width: 273px;
+	height: 164px;
+	left: -136px;
+	top: 9px;
+}
+
+header .cloud101 {
+	position: absolute;
+	width: 185px;
+	height: 111px;
+	left: 1px;
+	top: 300px;
+}
+
+header .cloud102 {
+	position: absolute;
+	width: 223px;
+	height: 134px;
+	left: -188px;
+	top: 370px;
+}
+
+header .cloud103 {
+	position: absolute;
+	width: 223px;
+	height: 134px;
+	left: 208px;
+	top: 353px;
+}
+
+header .cloud104 {
+	position: absolute;
+	width: 223px;
+	height: 134px;
+	left: 243px;
+	top: 50px;
+}
+
+header .cloud105 {
+	position: absolute;
+	width: 101px;
+	height: 61px;
+	left: 269px;
+	top: 114px;
+}
+
+header .headContainer {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 18px;
+	padding-top: 22px;
+}
+
+.headContainer span {
+	width: auto;
+}
+
+header .time {
+	width: 254px;
+	height: 41px;
+	margin: 0 auto;
+	background: #ffffff;
+	border-radius: 30px;
+	margin-top: 32px;
+	text-align: center;
+	margin-bottom: 54px;
+}
+
+header .time p {
+	width: 143px;
+	height: 25px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 21px;
+	line-height: 25px;
+
+	color: #ee952d;
+	margin: 0 auto;
+	padding: 9px 0;
+}
+
+header .weather {
+	width: 217px;
+	height: 217px;
+	border-radius: 100%;
+	margin: 0 auto;
+	background: linear-gradient(0deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+		linear-gradient(180deg, #e7ad7d 9.28%, rgba(234, 210, 35, 0.107891) 144.6%, rgba(235, 212, 29, 0.0531605) 166.99%, rgba(235, 214, 25, 0.00729179) 167.01%, rgba(231, 173, 125, 0) 167.03%);
+	text-align: center;
+	margin-bottom: 148px;
+}
+
+.weather p {
+	width: 100%;
+	padding: 89px 54px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 39px;
+}
+
+header .nowWeather {
+	width: 352px;
+	height: 254px;
+
+	background: rgba(251, 251, 251, 0.7);
+	border-radius: 20px;
+	margin: 0 auto;
+	position: relative;
+	padding: 27px;
+	margin-bottom: 47px;
+}
+
+.nowWeather .title {
+	position: absolute;
+	top: -18px;
+	left: 9px;
+	width: 130px;
+	height: 37px;
+	background: #ffffff;
+	border-radius: 30px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: center;
+	padding: 10px;
+
+	color: #000000;
+}
+
+.nowWeather div {
+	width: 100%;
+	margin-bottom: 19px;
+}
+
+.nowWeather div p:first-child {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 18px;
+	width: 100%;
+}
+
+.nowWeather div p:last-child {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 14px;
+	width: 100%;
+}
+
+.nowWeather .caster {
+	text-align: right;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 12px;
+	color: #646161;
+	width: 100%;
+}
+
+.caster p {
+	width: 100%;
+}
+
+main {
+	height: 500px;
+	text-align: center;
+	padding: 19px 0;
+	position: relative;
+}
+
+main .text {
+	position: absolute;
+	width: 130px;
+	height: 37px;
+
+	background: #ffffff;
+	border-radius: 30px;
+
+	top: -18px;
+	left: 29px;
+	padding: 10px 28px;
+}
+
+main .text p {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	width: 100%;
+}
+
+main form {
+	margin: 0 auto;
+	width: 275px;
+	height: 24px;
+
+	background: #e9fbff;
+	border-radius: 30px;
+	display: flex;
+	justify-content: space-between;
+	padding: 6px 12px;
+	margin-bottom: 24px;
+}
+
+main form input {
+	border: none;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 12px;
+	width: 230px;
+	background: none;
+
+	color: #7c7c7c;
+}
+
+main form img {
+	width: 12px;
+	height: 12px;
+}
+
+main .searchContainer {
+	padding: 0 16px;
+}
+
+.searchContainer .textContainer {
+	display: flex;
+	gap: 25px;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.textContainer button {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 18px;
+	margin: 0;
+	color: #aaa;
+	width: auto;
+}
+
+.textContainer button:first-child {
+	color: #000;
+}
+
+main .resultContainer {
+	width: 100%;
+}
+
+main .resultContainer p {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 14px;
+	color: #aaaaaa;
+	margin-top: 4px;
+	text-align: left;
+	margin-bottom: 11px;
+	width: 100%;
+}
+
+.resultContainer .imgContainer {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 4px;
+	width: 358px;
+}
+
+.imgContainer .imgEach {
+	width: 116px;
+	margin-bottom: 7px;
+	position: relative;
+}
+
+.imgEach img {
+	width: 116px;
+	height: 120px;
+	object-fit: cover;
+}
+
+.imgEach .cartBtn {
+	position: absolute;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 5px;
+	color: #b3b3b3;
+	width: 30px;
+	background: #ffffff;
+	border: 1px solid #dadada;
+	border-radius: 7px;
+	box-sizing: border-box;
+	right: 38px;
+	bottom: 35px;
+}
+
+.imgEach .likeBtn {
+	position: absolute;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 5px;
+	color: #b3b3b3;
+	width: 30px;
+	background: #ffffff;
+	border: 1px solid #dadada;
+	border-radius: 7px;
+	box-sizing: border-box;
+	right: 4px;
+	bottom: 35px;
+}
+
+.imgEach .tagContainer {
+	text-align: left;
+	width: 100%;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 8px;
+	line-height: 10px;
+	color: #787878;
+	margin: 3px 0;
+}
+
+.imgEach .clothKindContainer {
+	width: 100%;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 8px;
+	line-height: 10px;
+	color: #ee952d;
+	text-align: left;
+}

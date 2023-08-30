@@ -1,0 +1,296 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>WWW</title>
+		<link rel="stylesheet" href="{% static 'css/Main.css' %}" />
+	</head>
+
+	<body>
+		<header>
+			<img class="cloud101" src="{% static 'img/image 10.svg' %}" />
+			<img class="cloud102" src="{% static 'img/image 10.svg' %}" />
+			<img class="cloud103" src="{% static 'img/image 10.svg' %}" />
+			<img class="cloud104" src="{% static 'img/image 10.svg' %}" />
+			<img class="cloud105" src="{% static 'img/image 10.svg' %}" />
+			<img class="cloud11" src="{% static 'img/image 10.svg' %}" />
+			<img class="cloud8" src="{% static 'img/image 10.svg' %}" />
+			<div class="headContainer">
+				<span class="logo"><a href="{% url 'Main' %}">www.</a></span>
+               {% if user.is_authenticated %}
+                  <span class="logout"><a href="{% url 'logout' %}">LogOut</a></span>
+                  <span class="create"><a href="{% url 'create' %}">글쓰기</a></span>
+               {% else %}
+                  <span class="login"><a href="{% url 'login' %}">Log in</a></span>
+                  <span class="signup"><a href="{% url 'signup' %}">SignUp</a></span>
+               {% endif %}
+			</div>
+			<div class="time">
+            {% if hour < 12 %}
+				   <p>Good Morning</p>
+            {% elif hour < 18 %}
+               <p>Good Afternoon</p>
+            {% else %}
+            <p>Good Night</p>
+            {% endif %}
+			</div>
+			<div class="weather">
+				<p>{{now}}</p>
+			</div>
+			<div class="nowWeather">
+				<p class="title">현재 날씨 ⛅️</p>
+				<div>
+					<p>오늘의 날씨 : {{mypost.weather}}</p>
+					<p>{{mypost.weather_desc}}</p>
+				</div>
+				<div>
+					<p>오늘의 기온 : 약 {{mypost.temp}} 🌡</p>
+					<p>{{mypost.temp_desc}}</p>
+				</div>
+				<div>
+					<p>초미세먼지 : {{mypost.finedust}}</p>
+					<p>{{mypost.finedust_desc}}</p>
+				</div>
+				<p class="caster">기상 캐스터 : {{mypost.user.nickname}}</p>
+			</div>
+		</header>
+		<main>
+			<div class="text">
+				<p>추천 착장 👕</p>
+			</div>
+			<form>
+				<input type="text" name="search" placeholder="검색하고 싶은 태그를 입력해주세요. ex) #운동 #산책.." />
+				<img src="{% static 'img/search 1.svg'%}" />
+			</form>
+			<div class="searchContainer">
+				<div class="textContainer">
+					<button class="scrabSort" onclick="clickScrab();"># 스크랩 추천 착장</button>
+					<button class="nowSort" onclick="nowScrab();"># 실시간 착장</button>
+					<button class="likeSort" onclick="likeScrab();"># 공감 추천 착장</button>
+				</div>
+				<div class="resultContainer">
+					<p>사용자들이 스크랩을 많이 한 착장 순으로 보여드립니다.</p>
+					<div class="imgContainer">
+                  {% for post in posts_scrap %}
+						<div class="imgEach">
+							   <img src="http://placekitten.com/g/300/300" />
+							   <button class="cartBtn">🛒({{post.scrap}})</button>
+							   <button class="likeBtn">👍({{post.liked}})</button>
+							   <div class="tagContainer"><span>{{post.wear_tag1}}</span><span>#한강 </span><span>#개강전 </span></div>
+							   <div class="clothKindContainer"><span>{{post.today_tag1}} </span><span>#A라인청치마 </span></div>
+                  </div>
+                  {% endfor %}
+					</div>
+				</div>
+			</div>
+			<script>
+				const cloud101 = document.querySelector('.cloud101');
+				const cloud102 = document.querySelector('.cloud102');
+				const cloud103 = document.querySelector('.cloud103');
+				const cloud104 = document.querySelector('.cloud104');
+				const cloud105 = document.querySelector('.cloud105');
+				const cloud11 = document.querySelector('.cloud11');
+				const cloud8 = document.querySelector('.cloud8');
+
+				cloud101.style.left = '1px';
+				cloud8.style.left = '-96px';
+				cloud11.style.left = '-136px';
+				cloud105.style.left = '269px';
+				cloud102.style.left = '-188px';
+				cloud103.style.left = '208px';
+				cloud104.style.left = '243px';
+
+				let animate;
+
+				const cloudActive = () => {
+					moving1();
+					moving2();
+					moving3();
+				};
+
+				const moving1 = () => {
+					cloud101.style.left = parseInt(cloud101.style.left) + 1 + 'px';
+					cloud11.style.left = parseInt(cloud11.style.left) + 1 + 'px';
+					if (cloud101.style.left === '390px') {
+						cloud101.style.left = '-270px';
+					}
+					if (cloud11.style.left === '390px') {
+						cloud11.style.left = '-270px';
+					}
+
+					animate = setTimeout(moving1, 20);
+				};
+
+				const moving2 = () => {
+					cloud102.style.left = parseInt(cloud102.style.left) + 1 + 'px';
+					cloud103.style.left = parseInt(cloud103.style.left) + 1 + 'px';
+
+					if (cloud102.style.left === '390px') {
+						cloud102.style.left = '-270px';
+					}
+					if (cloud103.style.left === '390px') {
+						cloud103.style.left = '-270px';
+					}
+					animate = setTimeout(moving2, 30);
+				};
+
+				const moving3 = () => {
+					cloud8.style.left = parseInt(cloud8.style.left) + 1 + 'px';
+					cloud104.style.left = parseInt(cloud104.style.left) + 1 + 'px';
+					cloud105.style.left = parseInt(cloud105.style.left) + 1 + 'px';
+
+					if (cloud8.style.left === '390px') {
+						cloud8.style.left = '-270px';
+					}
+					if (cloud104.style.left === '390px') {
+						cloud104.style.left = '-270px';
+					}
+					if (cloud105.style.left === '390px') {
+						cloud105.style.left = '-270px';
+					}
+					animate = setTimeout(moving3, 40);
+				};
+
+				window.onload = cloudActive;
+
+				const scrabSort = document.querySelector('.scrabSort');
+				const nowSort = document.querySelector('.nowSort');
+				const likeSort = document.querySelector('.likeSort');
+
+				const clickScrab = () => {
+					scrabSort.style = 'color:#000; ';
+					nowSort.style = 'color:#aaa;';
+					likeSort.style = 'color:#aaa;';
+               ScrapRender();
+				};
+
+				const nowScrab = () => {
+					nowSort.style = 'color:#000; ';
+					scrabSort.style = 'color:#aaa;';
+					likeSort.style = 'color:#aaa;';
+               NowRender();
+				};
+
+				const likeScrab = () => {
+					likeSort.style = 'color:#000; ';
+					nowSort.style = 'color:#aaa;';
+					scrabSort.style = 'color:#aaa;';
+               LikeRender();
+				};
+
+				// 추천 착장 인쇄
+				const $result = document.querySelector('.resultContainer');
+
+				const ScrapRender = () => {
+					$result.innerHTML = `
+               <p>사용자들이 스크랩을 많이 한 착장 순으로 보여드립니다.</p>
+               <div class="imgContainer">
+                  {% for post in posts_scrap %}
+						<div class="imgEach">
+                        <img src="http://placekitten.com/g/300/300" />
+							   <button class="cartBtn">🛒({{post.scrap}})</button>
+							   <button class="likeBtn">👍({{post.liked}})</button>
+							   <div class="tagContainer">
+                           <span>#{{post.wear_tag1}}</span> 
+                           {% if post.wear_tag2 %}
+                              <span>#{{post.wear_tag2}}</span>
+                           {% endif %}
+                           {% if post.wear_tag3 %}
+                              <span>#{{post.wear_tag3}}</span>
+                           {% endif %}
+                           
+                           </div>
+							   <div class="clothKindContainer">
+                           <span>#{{post.today_tag1}} </span>
+                           {% if post.today_tag2 %}
+                              <span>#{{post.today_tag2}}</span>
+                           {% endif %}
+                           {% if post.today_tag3 %}
+                              <span>#{{post.today_tag3}}</span>
+                           {% endif %}
+                        </div>
+                     
+                  </div>
+                  {% endfor %}
+					</div>
+					</div>`;
+				};
+
+				const setState = (newState) => {
+					state = { ...state, ...newState };
+					// ScrapRender();
+				};
+
+				const NowRender = () => {
+					$result.innerHTML = `
+               <p>사용자들이 실시간으로 업로드한 착장 순으로 보여드립니다.</p>
+               <div class="imgContainer">
+                  {% for post in origin_post %}
+						   <div class="imgEach">
+						   	<img src="http://placekitten.com/g/300/300" />
+							   <button class="cartBtn">🛒({{post.scrap}})</button>
+							   <button class="likeBtn">👍({{post.liked}})</button>
+							   <div class="tagContainer">
+                           <span>#{{post.wear_tag1}}</span> 
+                           {% if post.wear_tag2 %}
+                              <span>#{{post.wear_tag2}}</span>
+                           {% endif %}
+                           {% if post.wear_tag3 %}
+                              <span>#{{post.wear_tag3}}</span>
+                           {% endif %}
+                        </div>
+							   <div class="clothKindContainer">
+                           <span>#{{post.today_tag1}} </span>
+                           {% if post.today_tag2 %}
+                              <span>#{{post.today_tag2}}</span>
+                           {% endif %}
+                           {% if post.today_tag3 %}
+                              <span>#{{post.today_tag3}}</span>
+                           {% endif %}
+						   	</div>
+						   </div>
+                  {% endfor %}
+					</div>`;
+				};
+
+				const LikeRender = () => {
+					$result.innerHTML = `
+               <p>사용자들이 공감 추천을 많이 한 착장 순으로 보여드립니다.</p>
+               <div class="imgContainer">
+						{% for post in posts_liked %}
+						   <div class="imgEach">
+						   	<img src="http://placekitten.com/g/300/300" />
+							   <button class="cartBtn">🛒({{post.scrap}})</button>
+							   <button class="likeBtn">👍({{post.liked}})</button>
+							   <div class="tagContainer">
+                           <span>#{{post.wear_tag1}}</span> 
+                           {% if post.wear_tag2 %}
+                              <span>#{{post.wear_tag2}}</span>
+                           {% endif %}
+                           {% if post.wear_tag3 %}
+                              <span>#{{post.wear_tag3}}</span>
+                           {% endif %}
+                           
+                           </div>
+							   <div class="clothKindContainer">
+                           <span>#{{post.today_tag1}} </span>
+                           {% if post.today_tag2 %}
+                              <span>#{{post.today_tag2}}</span>
+                           {% endif %}
+                           {% if post.today_tag3 %}
+                              <span>#{{post.today_tag3}}</span>
+                           {% endif %}
+						   	</div>
+						   </div>
+                  {% endfor %}
+					</div>`;
+				};
+
+				ScrapRender();
+			</script>
+		</main>
+	</body>
+</html>

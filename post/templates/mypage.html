@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>WWW</title>
+		<link rel="stylesheet" href="{% static 'css/mypage.css' %}" />
+	</head>
+
+	<body>
+		<header>
+			<img class="cloud10" src="{% static 'img/image 10.svg' %}" />
+			<img class="cloud11" src="{% static 'img/image 11.svg' %}" />
+			<img class="cloud12" src="{% static 'img/image 12.svg' %}" />
+			<img class="cloud13" src="{% static 'img/image 13.svg' %}" />
+			<div class="headContainer">
+				<span class="logo"><a href="{% url 'Main' %}">www.</a></span>
+				<a href="{% url 'create' %}"><span>글쓰기</span></a>
+			</div>
+			<div class="profile">
+				<img class="profileImg" src="{{user_detail.user_image.url}}" alt="profile" />
+				<span class="nickname">{{user_detail.nickname}}</span>
+				<div class="desc">
+					<p>{{user_detail.introduction}}</p>
+				</div>
+			</div>
+			<div class="btnContainer">
+				<button class="myPostBtn">게시글</button>
+				<button class="myStoreBtn">서랍장</button>
+			</div>
+		</header>
+		<main>
+			<div class="monthContainer">
+				<div class="month">2022년 8월</div>
+				<div class="monthWeather">
+					<img src="{% static 'img/image 14.svg'%}" />
+					<img src="{% static 'img/image 15.svg'%}" />
+					<div class="monthTitle">8월의 날씨 ⛅️</div>
+					<div class="monthDesc">
+						<p>☀ 날씨 : <span>{{weather}}</span></p>
+						<p>🌡 기온 : <span>{{temp_avg}}</span></p>
+						<p>👋 초미세먼지 : <span>{{finedust}}</span></p>
+						<p>🧥 이달에 자주 입었던 옷 : <span class="tag">#반팔 #반바지 #슬렉스 #얇은 겉옷</span></p>
+					</div>
+				</div>
+				<div class="imgContainer">
+					{% for post in post_detail%} {%if post.image%}
+					<img src="{{post.image.url}}" />
+					{%endif%} {%endfor%}
+				</div>
+				<div style="width: 390px; height: 80px"></div>
+			</div>
+		</main>
+		<script>
+			const cloud10 = document.querySelector('.cloud10');
+			const cloud11 = document.querySelector('.cloud11');
+			const cloud12 = document.querySelector('.cloud12');
+			const cloud13 = document.querySelector('.cloud13');
+
+			cloud10.style.left = '308px';
+			cloud11.style.left = '0px';
+			cloud12.style.left = '290px';
+			cloud13.style.left = '89px';
+
+			let animate;
+
+			const cloudActive = () => {
+				moving1();
+				moving2();
+				moving3();
+			};
+
+			const moving1 = () => {
+				cloud10.style.left = parseInt(cloud10.style.left) + 1 + 'px';
+				cloud11.style.left = parseInt(cloud11.style.left) + 1 + 'px';
+				if (cloud10.style.left === '390px') {
+					cloud10.style.left = '-100px';
+				}
+				if (cloud11.style.left === '390px') {
+					cloud11.style.left = '-100px';
+				}
+
+				animate = setTimeout(moving1, 20);
+			};
+
+			const moving2 = () => {
+				cloud12.style.left = parseInt(cloud12.style.left) + 1 + 'px';
+
+				if (cloud12.style.left === '390px') {
+					cloud12.style.left = '-100px';
+				}
+				animate = setTimeout(moving2, 30);
+			};
+
+			const moving3 = () => {
+				cloud13.style.left = parseInt(cloud13.style.left) + 1 + 'px';
+
+				if (cloud13.style.left === '390px') {
+					cloud13.style.left = '-100px';
+				}
+
+				animate = setTimeout(moving3, 40);
+			};
+
+			window.onload = cloudActive;
+		</script>
+	</body>
+</html>

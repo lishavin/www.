@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WWW</title>
+    <link rel="stylesheet" href="{% static 'css/Signup.css' %}">
+</head>
+
+<body>
+    <header>
+        <div class="imgContainer">
+            <img class="cloud10" src="{% static 'img/image 10.svg' %}" />
+            <img class="cloud11" src="{% static 'img/image 11.svg' %}" />
+            <img class="cloud12" src="{% static 'img/image 12.svg' %}" />
+            <img class="cloud13" src="{% static 'img/image 13.svg' %}" />
+            <img class="cloud14" src="{% static 'img/image 14.svg' %}" />
+        </div>
+        <div class="logo">
+            <p>www.</p>
+        </div>
+        <div class="textContainer">
+            <p><span>w</span>ear</p>
+            <p><span>w</span>eather</p>
+            <p><span>w</span>ell</p>
+        </div>
+        <div class="btnContainer">
+            <button class="loginBtn"><a href="{% url 'login' %}">Log in</a></button>
+            <button class="signupBtn">Sign Up</button>
+        </div>
+    </header>
+    <main>
+        <form method="POST" action="http://127.0.0.1:8000/accounts/signup/">
+            {%csrf_token%}
+            <input type="text" name="username" placeholder="Username" />
+            <input type="text" name="password" placeholder="Password" />
+            <input type="text" name="repeat" placeholder="Password_confirm" />
+            <input class="submitBtn" type="submit" value="회원가입" />
+        </form>
+    </main>
+</body>
+
+</html>

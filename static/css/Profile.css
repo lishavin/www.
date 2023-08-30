@@ -1,0 +1,205 @@
+@import 'reset.css';
+
+* {
+	width: 390px;
+	box-sizing: border-box;
+}
+
+html {
+	width: 390px;
+	margin: 0 auto;
+	background-color: #f5f5f5;
+}
+
+body {
+	background-color: #fff;
+}
+
+header {
+	background-color: #cfedf3;
+	height: 259px;
+	position: relative;
+}
+
+header .imgContainer {
+	width: 700px;
+	height: 259px;
+	position: absolute;
+}
+
+@keyframes fly-cycle {
+	100% {
+		background-position: -900px 0;
+	}
+}
+header img {
+	position: absolute;
+}
+
+header .cloud10 {
+	width: 82px;
+	height: 49px;
+	left: 308px;
+	top: 14px;
+}
+
+header .cloud11 {
+	width: 64px;
+	height: 38px;
+	left: 0px;
+	top: 44px;
+}
+
+header .cloud12 {
+	width: 64px;
+	height: 38px;
+	left: 290px;
+	top: 44px;
+}
+
+header .cloud13 {
+	width: 52px;
+	height: 31px;
+	left: 89px;
+	top: -2px;
+}
+
+header .cloud14 {
+	width: 115px;
+	height: 69px;
+	left: 168px;
+	top: 118px;
+}
+
+header .logo {
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 21.78px;
+	padding-top: 14px;
+	padding-left: 19px;
+}
+
+.logo p {
+	width: 100%;
+}
+
+header .textContainer {
+	margin-top: 51px;
+	margin-left: 57px;
+	font-weight: 500;
+	font-size: 26px;
+	line-height: 35px;
+	color: #fff;
+}
+
+.textContainer span {
+	color: #6f6f6f;
+}
+
+header .btnContainer {
+	margin-top: 36px;
+	display: flex;
+	justify-content: center;
+	gap: 63px;
+}
+
+.btnContainer button {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 18px;
+	background: rgba(255, 255, 255, 0.4);
+	border-radius: 30px;
+	width: 130px;
+	height: 51px;
+	position: relative;
+	padding-bottom: 20px;
+}
+
+.btnContainer button:nth-child(2) {
+	background-color: #fff;
+}
+
+main {
+	height: 585px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+main p {
+	margin-top: 20px;
+	margin-bottom: 17px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 20px;
+	text-align: center;
+
+	color: #6f6f6f;
+}
+
+main form {
+	margin: 0;
+	width: 100%;
+	text-align: center;
+}
+
+main input {
+	width: 235px;
+	border: 0;
+	text-align: center;
+	border-bottom: 1px solid #8d8d8d;
+	height: 35px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 35px;
+	margin-bottom: 39px;
+}
+
+#photo {
+	display: none;
+}
+
+.photoUpload {
+	width: 235px;
+	border: 0;
+	text-align: center;
+	border-bottom: 1px solid #8d8d8d;
+	height: 35px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 35px;
+	color: grey;
+	margin: 0 auto;
+	margin-bottom: 39px;
+}
+
+main form textarea {
+	box-sizing: border-box;
+	width: 263px;
+	height: 97px;
+	border: 1px solid #cfedf3;
+	border-radius: 5px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 35px;
+	padding: 1px 14px;
+	outline-color: #cfedf3;
+}
+
+main .submitBtn {
+	width: 234px;
+	height: 43px;
+	margin-top: 24px;
+	background: #e3f7fb;
+	border-radius: 20px;
+	border: 0;
+}

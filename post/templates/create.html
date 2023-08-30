@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'css/Create.css' %}" rel="stylesheet" />
+
+    <title>www.</title>
+</head>
+
+<body>
+    <div class="view">
+        <img class="cloud10" src="{% static 'img/image 10.svg' %}" />
+        <img class="cloud11" src="{% static 'img/image 11.svg' %}" />
+        <img class="cloud12" src="{% static 'img/image 12.svg' %}" />
+        <img class="cloud13" src="{% static 'img/image 13.svg' %}" />
+        <div class="topBar">
+            <p id="title">www.</p>
+        </div>
+        <div class="CreateBox">
+            <form method="POST" action="{% url 'create' %}" , enctype="multipart/form-data">
+                {%csrf_token%}
+
+                <div class="picture">
+                    <div class="Title">사진 업로드 🖼</div>
+                    <p id="ps">사진을 업로드 해주세요 :-)</p>
+                    <input type="file" value="image" name="image">
+
+                    <br />
+                    <br />
+                </div>
+                <div class="weather">
+                    <div class="Title">현재 날씨 ⛅</div>
+                    <div class="subTitle">
+                        <p id="index">오늘의 날씨:</p>
+                        <div class="btnBundle">
+                            <input id="clear_input" type="hidden" name="weather" value="clear">
+                            <div id="clear_btn" class="tagBtn1"
+                                onclick='document.querySelector("#clear_input").checked =true'>#맑음</div>
+                            <input id="cloudy_input" type="hidden" name="weather" value="cloudy">
+                            <div id="cloudy_btn" class="tagBtn1"
+                                onclick='document.querySelector("#cloudy_input").checked =true'>#흐림</div>
+
+                            <button type="radio" name="weather" value="rainy" class="tagBtn1">#비</button>
+                            <button type="radio" name="weather" value="snowy" class="tagBtn1">#눈</button>
+                            <button type="radio" name="weather" value="windy" class="tagBtn1">#바람</button>
+
+
+                        </div>
+                    </div>
+                    <textarea id="weather" type="text" name="weather_desc"
+                        placeholder="오늘의 날씨를 서술해주세요. 자세히 서술해 줄수록 도움 받는 사람들이 많아요 :-)"></textarea>
+                </div>
+                <div class="subTitle">
+                    <p id="index">오늘의 기온:</p>
+                    <textarea id="temp1" type="textar" name="temp" placeholder="정확한 기온 숫자만 적어주세요 ~ !"></textarea>
+                </div>
+                <textarea type="text" id="temp2" name="temp_desc"
+                    placeholder="오늘의 기온을 서술해주세요. 자세히 서술해 줄수록 도움 받는 사람들이 많아요 :-)"></textarea>
+                <div class="subTitle">
+                    <p id="index">초미세먼지 :</p>
+                    <div class="btnBundle">
+                        <input id="best_input" type="hidden" name="finedust" value="best">
+                        <div id="best_btn" class="tagBtn2" onclick='document.querySelector("#best_input").checked =true'
+                            style="
+                            width: 50px;
+                        ">#좋음</div>
+                        <button type="radio" name="finedust" value="good" class="tagBtn2">#조금좋음</button>
+                        <button type="radio" name="finedust" value="average" class="tagBtn2">#보통</button>
+                        <button type="radio" name="finedust" value="bad" class="tagBtn2">#조금나쁨</button>
+                        <button type="radio" name="finedust" value="worst" class="tagBtn2">#나쁨</button>
+                    </div>
+                </div>
+                <textarea type="text" id="microDust" name="finedust_desc"
+                    placeholder="오늘의 초미세먼지 농도에 대해 서술해주세요. 자세히 서술해 줄수록 도움 받는 사람들이 많아요 :-)"></textarea>
+                <div class="write">
+                    <div class="Title">글쓰기 🖋</div>
+                    <div class="subTitle1">
+                        <p id="index">오늘의 tmi :</p>
+                        <textarea type="text" id="tmi" name="tmi"
+                            placeholder="오늘의 날씨에 따른 기록을 해보세요. 짧아도 좋아요."></textarea>
+                    </div>
+                </div>
+                <div class="tag">
+                    <div class="Title">태그 📎</div>
+                    <p id="ps">오늘 입은 옷 들을 기록을 해보세요.</p>
+                    <div class="subTitle">
+                        <p id="index">옷 태그:</p>
+                        <textarea type="text" name="wear_tag1" class="clothesTag" id="bar1"
+                            placeholder="ex) 얇은 슬랙스"></textarea>
+                    </div>
+                    <div class="left1">
+                        <textarea type="text" name="wear_tag2" class="clothesTag"></textarea>
+                        <textarea type="text" name="wear_tag3" class="clothesTag"></textarea>
+                    </div>
+                    <p id="ps">오늘을 태그 형태로 기록을 해보세요.</p>
+                    <div class="subTitle">
+                        <p id="index">기록 태그 :</p>
+                        <textarea type="text" name="today_tag1" class="archiveTag" id="bar2"
+                            placeholder="ex) 한강"></textarea>
+                    </div>
+                    <div class="left2">
+                        <textarea type="text" name="today_tag2" class="archiveTag"></textarea>
+                        <textarea type="text" name="today_tag3" class="archiveTag"></textarea>
+                    </div>
+                </div>
+                <!-- <input type="submit" value="post"> -->
+                <input type="submit" value="post">
+
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    // const good_btn = document.querySelector("#good_btn");
+    // const good_input = document.querySelector("#good_input");
+    // good_btn.addEventListener("click", () => { good_input.checked = true; })
+    // 해쉬태그 가져오기
+
+    let selectedHashTag;
+    const getHashTagValue = (e) => {
+        selectedHashTag = e.target.innerText;
+    }
+
+    const hashTags = [...document.getElementsByClassName("btnBundle__hashTag")]
+    hashTags.forEach((hashtag) => {
+        hashtag.addEventListener("click", getHashTagValue)
+    })
+
+
+
+    // 날씨 버튼 선택
+    var tagBtn1 = document.getElementsByClassName('tagBtn1');
+    var tagBtn2 = document.getElementsByClassName('tagBtn2');
+
+    function handleClick(event) {
+        if (event.target.classList[1] === 'clicked') {
+            event.target.classList.remove('clicked');
+        } else {
+            for (var i = 0; i < tagBtn1.length; i++) {
+                tagBtn1[i].classList.remove('clicked');
+            }
+
+            event.target.classList.add('clicked');
+        }
+    }
+
+    function init1() {
+        for (var i = 0; i < tagBtn1.length; i++) {
+            tagBtn1[i].addEventListener('click', handleClick);
+        }
+    }
+
+    init1();
+
+    function handleClick(event) {
+        if (event.target.classList[1] === 'clicked') {
+            event.target.classList.remove('clicked');
+        } else {
+            for (var i = 0; i < tagBtn2.length; i++) {
+                tagBtn2[i].classList.remove('clicked');
+            }
+
+            event.target.classList.add('clicked');
+        }
+    }
+
+    function init2() {
+        for (var i = 0; i < tagBtn2.length; i++) {
+            tagBtn2[i].addEventListener('click', handleClick);
+        }
+    }
+
+    init2();
+
+    const cloud10 = document.querySelector('.cloud10')
+    const cloud11 = document.querySelector('.cloud11')
+    const cloud12 = document.querySelector('.cloud12')
+    const cloud13 = document.querySelector('.cloud13')
+
+    cloud10.style.left = "308px"
+    cloud11.style.left = "0px"
+    cloud12.style.left = "290px"
+    cloud13.style.left = "89px"
+
+    let animate;
+
+    const cloudActive = () => {
+        moving1();
+        moving2();
+        moving3();
+    }
+
+    const moving1 = () => {
+        cloud10.style.left = parseInt(cloud10.style.left) + 1 + 'px';
+        cloud11.style.left = parseInt(cloud11.style.left) + 1 + 'px';
+        if (cloud10.style.left === '390px') {
+            cloud10.style.left = "-100px"
+        }
+        if (cloud11.style.left === '390px') {
+            cloud11.style.left = "-100px"
+        }
+
+        animate = setTimeout(moving1, 20)
+    }
+
+    const moving2 = () => {
+        cloud12.style.left = parseInt(cloud12.style.left) + 1 + 'px';
+
+        if (cloud12.style.left === '390px') {
+            cloud12.style.left = "-100px"
+        }
+        animate = setTimeout(moving2, 30)
+    }
+
+    const moving3 = () => {
+        cloud13.style.left = parseInt(cloud13.style.left) + 1 + 'px';
+
+        if (cloud13.style.left === '390px') {
+            cloud13.style.left = "-100px"
+        }
+
+        animate = setTimeout(moving3, 40)
+    }
+
+    window.onload = cloudActive;
+
+</script>
